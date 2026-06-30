@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manifold for Adobe Express</title>
+<meta name="description" content="Manifold turns one approved Adobe Express design into hundreds of personalized, on-brand assets driven by live business data.">
+<meta name="author" content="Hafiz">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manifold for Adobe Express">
+<meta property="og:description" content="One approved design becomes hundreds of personalized, on-brand assets. A connected creative-production engine for Adobe Express.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Spectral:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<noscript><style>.reveal{opacity:1 !important; transform:none !important;}</style></noscript>
+<style>
+:root{
+  --ink:#15151C;
+  --body:#3A3A45;
+  --muted:#6E6E80;
+  --faint:#9A9AAA;
+  --accent:#4B3FD0;
+  --accent-deep:#2C2466;
+  --accent-soft:#EFEDFC;
+  --bg:#FFFFFF;
+  --surface:#F7F7FB;
+  --line:#E7E6F0;
+  --display:'Spectral', Georgia, 'Times New Roman', serif;
+  --sans:'Source Sans 3', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth; scroll-padding-top:84px; -webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--body);
+  font-family:var(--sans); font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+a{color:inherit;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:3px;}
+
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+/* ---------- Header ---------- */
+.site-head{
+  position:sticky; top:0; z-index:50;
+  border-top:3px solid var(--accent);
+  background:rgba(255,255,255,0.82);
+  backdrop-filter:saturate(160%) blur(10px); -webkit-backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease, box-shadow .25s ease;
+}
+.site-head.scrolled{border-bottom-color:var(--line); box-shadow:0 8px 24px -22px rgba(20,20,28,0.4);}
+.head-inner{display:flex; align-items:center; justify-content:space-between; height:64px;}
+.word{font-family:var(--sans); font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:14px; color:var(--ink); text-decoration:none;}
+.head-tag{font-size:12.5px; letter-spacing:0.05em; color:var(--muted);}
+
+/* ---------- Hero ---------- */
+.hero{padding:66px 0 58px;}
+.hero-grid{display:grid; grid-template-columns:1.04fr 0.96fr; gap:54px; align-items:center;}
+.eyebrow{font-weight:600; font-size:12.5px; letter-spacing:0.17em; text-transform:uppercase; color:var(--accent); margin:0 0 18px;}
+.hero-title{font-family:var(--display); font-weight:300; font-size:clamp(3.2rem,8.5vw,5.6rem); line-height:0.98; letter-spacing:-0.025em; color:var(--ink); margin:0 0 18px;}
+.hero-tag{font-family:var(--display); font-weight:400; font-size:clamp(1.25rem,2.4vw,1.6rem); line-height:1.34; color:var(--ink); margin:0 0 18px; max-width:30ch;}
+.hero-desc{font-size:1.06rem; line-height:1.62; color:var(--muted); margin:0; max-width:46ch;}
+
+/* ---------- Hero signature visual ---------- */
+.hero-visual{width:100%;}
+.stage{
+  background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:22px;
+  box-shadow:0 30px 70px -38px rgba(43,36,102,0.45);
+}
+.master{background:#fff; border:1px solid var(--line); border-radius:13px; overflow:hidden; box-shadow:0 10px 28px -18px rgba(20,20,28,0.3);}
+.m-bar{height:10px; background:var(--accent);}
+.m-body{padding:15px 15px 6px;}
+.m-img{height:66px; border-radius:9px; background:linear-gradient(135deg,#E9E7FB,#D6D1F5);}
+.m-line{height:8px; border-radius:5px; background:#E7E6F0; margin-top:11px;}
+.m-line.w1{width:78%;} .m-line.w2{width:54%;}
+.m-foot{display:flex; justify-content:space-between; align-items:center; padding:13px 15px;}
+.m-tag{font-weight:600; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted);}
+.m-pill{font-weight:600; font-size:10.5px; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); padding:3px 9px; border-radius:20px;}
+
+.gen{display:flex; align-items:center; gap:12px; margin:16px 2px;}
+.gen::before,.gen::after{content:""; height:1px; background:var(--line); flex:1;}
+.gen span{font-weight:700; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent);}
+
+.variants{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+.vcard{background:#fff; border:1px solid var(--line); border-radius:11px; padding:11px; box-shadow:0 8px 20px -16px rgba(20,20,28,0.28);}
+.v-sw{height:7px; width:62%; border-radius:4px; background:var(--t);}
+.v-l1{height:6px; width:100%; border-radius:4px; background:#ECEBF4; margin-top:10px;}
+.v-l2{height:6px; width:68%; border-radius:4px; background:#ECEBF4; margin-top:6px;}
+.v-name{font-weight:600; font-size:10.5px; letter-spacing:0.02em; color:var(--ink); margin-top:10px;}
+.stage-cap{font-weight:500; font-size:12.5px; color:var(--muted); text-align:center; margin:17px 0 2px;}
+
+/* hero load animation */
+@keyframes pop{from{opacity:0; transform:translateY(10px) scale(.96);} to{opacity:1; transform:none;}}
+.master{animation:pop .6s cubic-bezier(.2,.7,.3,1) both;}
+.gen{animation:pop .5s cubic-bezier(.2,.7,.3,1) .18s both;}
+.vcard{animation:pop .55s cubic-bezier(.2,.7,.3,1) both;}
+.vcard:nth-child(1){animation-delay:.24s;}
+.vcard:nth-child(2){animation-delay:.31s;}
+.vcard:nth-child(3){animation-delay:.38s;}
+.vcard:nth-child(4){animation-delay:.45s;}
+.vcard:nth-child(5){animation-delay:.52s;}
+.vcard:nth-child(6){animation-delay:.59s;}
+.stage-cap{animation:pop .5s ease .66s both;}
+
+/* ---------- Stats band ---------- */
+.band{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.stats{display:flex; padding:38px 0;}
+.stat{flex:1; padding:2px 28px;}
+.stat:first-child{padding-left:0;}
+.stat + .stat{border-left:1px solid var(--line);}
+.stat-num{font-family:var(--display); font-weight:600; font-size:clamp(1.85rem,3vw,2.35rem); color:var(--accent); line-height:1; letter-spacing:-0.01em; margin:0 0 11px;}
+.stat-lab{font-size:0.95rem; line-height:1.5; color:var(--muted); margin:0; max-width:30ch;}
+
+/* ---------- Pull quote ---------- */
+.quote-sec{padding:74px 0;}
+.pull{max-width:760px; margin:0 auto; text-align:center;}
+.pull-mark{width:42px; height:3px; background:var(--accent); border-radius:2px; margin:0 auto 26px;}
+.pull blockquote{margin:0; font-family:var(--display); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.05rem); line-height:1.4; color:var(--ink); letter-spacing:-0.01em;}
+
+/* ---------- Content sections ---------- */
+.sec{padding:64px 0; border-top:1px solid var(--line);}
+.h2{font-family:var(--display); font-weight:600; font-size:clamp(1.7rem,3.4vw,2.35rem); line-height:1.14; letter-spacing:-0.015em; color:var(--ink); margin:0 0 24px; max-width:22ch;}
+.prose{font-size:1.06rem; line-height:1.68; color:var(--body); margin:0 0 16px; max-width:64ch;}
+.prose strong{color:var(--ink); font-weight:600;}
+
+.speclist{list-style:none; padding:0; margin:10px 0 20px; max-width:64ch; border-top:1px solid var(--line);}
+.speclist li{padding:15px 0; border-bottom:1px solid var(--line);}
+.speclist .li{display:block; font-weight:600; color:var(--ink); margin-bottom:3px;}
+.speclist .ex{display:block; color:var(--muted); font-size:0.99rem; line-height:1.55;}
+
+.steps{margin-top:8px; border-top:1px solid var(--line);}
+.step{display:grid; grid-template-columns:50px 1fr; gap:20px; padding:18px 0; border-bottom:1px solid var(--line);}
+.step-n{font-weight:700; font-size:0.95rem; color:var(--accent); letter-spacing:0.04em; padding-top:2px;}
+.step-t{font-weight:600; font-size:1.06rem; color:var(--ink); margin-bottom:4px;}
+.step-d{font-size:1.0rem; line-height:1.6; color:var(--body);}
+
+.cardgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin-top:6px;}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 24px; transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;}
+.card:hover{transform:translateY(-2px); border-color:#D8D5EC; box-shadow:0 22px 46px -30px rgba(43,36,102,0.45);}
+.card-t{font-weight:600; font-size:1.07rem; color:var(--ink); margin:0 0 9px;}
+.card-d{font-size:0.99rem; line-height:1.58; color:var(--body); margin:0;}
+
+.subhead{font-weight:700; font-size:12.5px; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin:36px 0 12px;}
+
+.table-wrap{border:1px solid var(--line); border-radius:13px; overflow:auto; margin-top:8px;}
+.cmp{width:100%; border-collapse:collapse; min-width:680px; font-size:0.95rem;}
+.cmp th,.cmp td{text-align:left; padding:14px 16px; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.42;}
+.cmp thead th{font-weight:600; font-size:0.85rem; letter-spacing:0.02em; color:#fff; background:var(--ink);}
+.cmp thead th.mf{background:var(--accent);}
+.cmp tbody td:first-child{font-weight:600; color:var(--ink); width:23%;}
+.cmp td.mf{background:var(--accent-soft); color:var(--ink); font-weight:600;}
+.cmp tbody tr:last-child td{border-bottom:0;}
+
+.tiers{display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:8px;}
+.tier{border:1px solid var(--line); border-radius:16px; padding:26px 26px;}
+.tier.pro{border:1.5px solid var(--accent); background:linear-gradient(180deg,#FBFAFF,#FFFFFF 42%);}
+.tier-name{font-weight:700; font-size:0.95rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin:0 0 4px;}
+.tier.pro .tier-name{color:var(--accent);}
+.tier-sub{font-size:0.9rem; color:var(--muted); margin:0 0 18px;}
+.feat{list-style:none; margin:0; padding:0;}
+.feat li{padding:12px 0; border-top:1px solid var(--line); font-size:0.99rem; line-height:1.45; color:var(--body);}
+.feat li:last-child{border-bottom:1px solid var(--line);}
+
+.timeline{margin-top:8px; border-top:1px solid var(--line);}
+.tl{display:grid; grid-template-columns:175px 1fr; gap:22px; padding:18px 0; border-bottom:1px solid var(--line);}
+.tl-when{font-weight:700; font-size:0.98rem; color:var(--accent);}
+.tl-what{font-size:1.0rem; line-height:1.6; color:var(--body);}
+
+.about{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:28px 32px; max-width:760px; margin-top:6px;}
+.about p{font-size:1.04rem; line-height:1.68; color:var(--body); margin:0;}
+.closing{font-family:var(--display); font-weight:400; font-size:clamp(1.4rem,2.8vw,1.9rem); line-height:1.42; color:var(--ink); margin:36px 0 0; max-width:24ch; letter-spacing:-0.01em;}
+
+/* ---------- Footer ---------- */
+.site-foot{border-top:1px solid var(--line); background:var(--surface); padding:46px 0 58px;}
+.foot-brand{font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:14px; color:var(--ink); margin:0 0 11px;}
+.foot-desc{font-size:0.98rem; color:var(--muted); margin:0 0 7px; max-width:48ch;}
+.foot-meta{font-size:0.86rem; color:var(--faint); margin:0;}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s cubic-bezier(.2,.7,.3,1);}
+.reveal.in{opacity:1; transform:none;}
+
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  .hero{padding:52px 0 46px;}
+  .hero-grid{grid-template-columns:1fr; gap:40px;}
+  .hero-copy{order:1;}
+  .hero-visual{order:2; max-width:470px;}
+}
+@media (max-width:720px){
+  .wrap{padding:0 20px;}
+  .sec{padding:50px 0;}
+  .quote-sec{padding:56px 0;}
+  .cardgrid{grid-template-columns:1fr;}
+  .tiers{grid-template-columns:1fr;}
+  .tl{grid-template-columns:1fr; gap:6px;}
+  .stats{flex-direction:column; padding:30px 0;}
+  .stat{padding:0;}
+  .stat + .stat{border-left:0; border-top:1px solid var(--line); margin-top:24px; padding-top:24px;}
+}
+@media (max-width:480px){
+  .head-tag{display:none;}
+  .variants{grid-template-columns:repeat(2,1fr);}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important;}
+  .reveal{opacity:1 !important; transform:none !important;}
+  html{scroll-behavior:auto;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="word" href="#top">Manifold</a>
+    <span class="head-tag">Adobe Express Add-on</span>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Connected creative production</p>
+        <h1 class="hero-title">Manifold</h1>
+        <p class="hero-tag">One approved design becomes hundreds of personalized, on-brand assets.</p>
+        <p class="hero-desc">A connected creative-production engine for Adobe Express. Connect your live business data once, bind it to a master design once, and generate or refresh entire sets of brand-locked assets on demand.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="stage">
+          <div class="master">
+            <div class="m-bar"></div>
+            <div class="m-body">
+              <div class="m-img"></div>
+              <div class="m-line w1"></div>
+              <div class="m-line w2"></div>
+            </div>
+            <div class="m-foot"><span class="m-tag">Master design</span><span class="m-pill">Brand locked</span></div>
+          </div>
+          <div class="gen"><span>Generates</span></div>
+          <div class="variants">
+            <div class="vcard" style="--t:#4B3FD0;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Acme</div></div>
+            <div class="vcard" style="--t:#2563EB;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Lumen</div></div>
+            <div class="vcard" style="--t:#0E9E86;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Verde</div></div>
+            <div class="vcard" style="--t:#E0902A;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Atlas</div></div>
+            <div class="vcard" style="--t:#D6457E;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Rosa</div></div>
+            <div class="vcard" style="--t:#7A5AF8;"><div class="v-sw"></div><div class="v-l1"></div><div class="v-l2"></div><div class="v-name">Nova</div></div>
+          </div>
+          <p class="stage-cap">One template, personalized for every record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="stats reveal">
+        <div class="stat">
+          <p class="stat-num">Unlimited</p>
+          <p class="stat-lab">Output volume, past the 99-variation ceiling of the native tool.</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">Once</p>
+          <p class="stat-lab">Map fields a single time. Bindings persist with the template, with no re-linking.</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">On-brand</p>
+          <p class="stat-lab">Every generated asset is locked to the brand kit, by default.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="quote-sec">
+    <div class="wrap">
+      <div class="pull reveal">
+        <div class="pull-mark"></div>
+        <blockquote>The design is already approved. Only the content changes. That is the entire problem, and the entire opportunity.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="sec" id="problem">
+    <div class="wrap reveal">
+      <p class="eyebrow">The problem</p>
+      <h2 class="h2">Personalization at scale breaks inside the design tool</h2>
+      <p class="prose">Personalization at scale is a real, daily need. A sales team wants a tailored one-pager for each open opportunity. A product team wants a fresh asset for every item in a catalog. A communications team wants the same announcement adapted for each region. The design is already approved. Only the content changes from one version to the next.</p>
+      <p class="prose">Express ships a native Bulk Create feature for exactly this kind of work, and its existence proves the need. But it was built as a light, one-time utility, and it stops well short of a production workflow.</p>
+      <ul class="speclist">
+        <li><span class="li">It caps output at 99 variations.</span><span class="ex">Real campaigns and catalogs routinely run well past that.</span></li>
+        <li><span class="li">It accepts only a static CSV.</span><span class="ex">There is no connection to the systems where the data actually lives.</span></li>
+        <li><span class="li">It requires re-linking every element by hand each time the template is reopened.</span><span class="ex">This is a limitation Adobe's own users have repeatedly raised.</span></li>
+        <li><span class="li">It does not adapt copy that runs too long, and it does not enforce brand rules.</span><span class="ex">Overflowing text breaks the layout, and nothing guarantees the output stays on-brand.</span></li>
+      </ul>
+      <p class="prose">When the work outgrows that tool, teams fall back to two poor options. They duplicate slides manually, which is slow, error-prone, and drifts off-brand. Or they adopt heavyweight creative-automation platforms that live outside the design tool, carry enterprise pricing, and demand technical setup most teams do not have. Neither belongs in the hands of an individual creator or a lean marketing team, which is precisely who Express serves.</p>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="sec" id="approach">
+    <div class="wrap reveal">
+      <p class="eyebrow">Approach</p>
+      <h2 class="h2">One approved design, a personalized set</h2>
+      <p class="prose">Manifold is an Adobe Express add-on that turns one approved design into a personalized set: driven by data, governed by the brand, and repeatable on demand. The user opens Manifold inside Express on a design they have already approved as their master layout. From there, the workflow is six steps, and after the first run it is effectively three.</p>
+      <div class="steps">
+        <div class="step"><div class="step-n">01</div><div><div class="step-t">Connect</div><div class="step-d">Link a data source: a Google Sheet, an uploaded CSV, or a live system such as a CRM or product catalog through a secure sign-in.</div></div></div>
+        <div class="step"><div class="step-n">02</div><div><div class="step-t">Map</div><div class="step-d">Manifold reads the columns and proposes a mapping, suggesting which field fills which text layer and which image slot, so nothing is linked by hand.</div></div></div>
+        <div class="step"><div class="step-n">03</div><div><div class="step-t">Bind</div><div class="step-d">The mapping is saved to the template. It persists, so the next run skips straight to generation.</div></div></div>
+        <div class="step"><div class="step-n">04</div><div><div class="step-t">Generate</div><div class="step-d">Manifold produces one asset per record. Copy that runs long is fitted intelligently. Colors, fonts, and logos are held to the brand kit.</div></div></div>
+        <div class="step"><div class="step-n">05</div><div><div class="step-t">Review</div><div class="step-d">The full set is presented for a quick pass, with anything that cannot comply clearly flagged.</div></div></div>
+        <div class="step"><div class="step-n">06</div><div><div class="step-t">Deliver</div><div class="step-d">Export the set, or publish it. When the data changes, rerun or schedule a refresh, and the assets update without starting over.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section class="sec" id="architecture">
+    <div class="wrap reveal">
+      <p class="eyebrow">Architecture</p>
+      <h2 class="h2">Built natively on the Adobe Express add-on platform</h2>
+      <p class="prose">Manifold runs inside Express under the same security model as any approved add-on. Each capability below maps to a documented, supported part of the Adobe Express add-on SDK.</p>
+      <div class="cardgrid">
+        <div class="card"><p class="card-t">Secure connections</p><p class="card-d">The Add-on UI SDK OAuth APIs authorize access to third-party systems using the standard PKCE flow, with tokens persisted so users do not sign in every session.</p></div>
+        <div class="card"><p class="card-t">Live data</p><p class="card-d">The iframe runtime fetches and shapes data from connected sources, then passes it to the document environment through the SDK communication APIs.</p></div>
+        <div class="card"><p class="card-t">Native generation</p><p class="card-d">The Document APIs create pages and place content programmatically inside the user's document, so output is real, editable Express content rather than flattened images.</p></div>
+        <div class="card"><p class="card-t">Persistent bindings</p><p class="card-d">Mappings are stored through client storage and a lightweight backend, which removes the repeated re-linking that limits the native tool.</p></div>
+      </div>
+      <p class="subhead">The intelligence layer</p>
+      <p class="prose">A model does the work that makes the difference between a swap tool and a production engine. It suggests field-to-element mappings so setup is a confirmation rather than a chore. It fits overflowing copy while preserving meaning, instead of breaking the layout. It drafts optional tailored copy per record or segment. And it checks each asset against brand rules, flagging or correcting what falls outside them.</p>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="sec" id="comparison">
+    <div class="wrap reveal">
+      <p class="eyebrow">Comparison</p>
+      <h2 class="h2">What makes it different</h2>
+      <p class="prose">Manifold is not a heavier Bulk Create. It is the connected, governed, repeatable layer that sits beyond it, and a lighter, native alternative to the enterprise platforms that solve part of this problem at a price most teams cannot justify.</p>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>Native Bulk Create</th>
+              <th>Enterprise platforms</th>
+              <th class="mf">Manifold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Data source</td><td>Static CSV only</td><td>Live systems, complex setup</td><td class="mf">Live CRM, catalog, or spreadsheet</td></tr>
+            <tr><td>Output volume</td><td>Up to 99</td><td>High</td><td class="mf">Unlimited</td></tr>
+            <tr><td>Field mapping</td><td>Re-linked every time</td><td>Configured by specialists</td><td class="mf">Suggested, then saved</td></tr>
+            <tr><td>Copy that overflows</td><td>Breaks the layout</td><td>Varies</td><td class="mf">Fitted automatically</td></tr>
+            <tr><td>Brand enforcement</td><td>None</td><td>Available</td><td class="mf">On by default</td></tr>
+            <tr><td>Refresh on data change</td><td>Manual rebuild</td><td>Supported</td><td class="mf">On demand or scheduled</td></tr>
+            <tr><td>Where it runs</td><td>Inside Express</td><td>Separate platform</td><td class="mf">Inside Express</td></tr>
+            <tr><td>Setup and cost</td><td>Free, limited</td><td>Enterprise pricing</td><td class="mf">Freemium, no specialist</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="prose" style="margin-top:22px;">The wedge is clear. Adobe has validated the workflow with a native tool but shipped only its simplest form, and the enterprise market proves the value at the top end. Manifold occupies the open ground between them: connected and capable, but native to Express and approachable for the long tail of creators and teams the platform was built for.</p>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section class="sec" id="who">
+    <div class="wrap reveal">
+      <p class="eyebrow">Who it is for</p>
+      <h2 class="h2">Built for the teams who already live in Express</h2>
+      <p class="prose">Manifold serves the teams who hit the wall the moment one design needs to become many. Four patterns recur.</p>
+      <div class="cardgrid">
+        <div class="card"><p class="card-t">Sales and enablement</p><p class="card-d">Generate a tailored one-pager or leave-behind for every open opportunity, pulling account name, industry, and the right proof points straight from the CRM.</p></div>
+        <div class="card"><p class="card-t">Product marketing</p><p class="card-d">Produce a fresh, on-brand asset for every item in a catalog or price list, and refresh the entire set the moment the source updates.</p></div>
+        <div class="card"><p class="card-t">Regional and localized campaigns</p><p class="card-d">Adapt one approved announcement across markets and segments, holding the brand steady while the content changes.</p></div>
+        <div class="card"><p class="card-t">Recurring communications</p><p class="card-d">Turn a master template into a repeatable run for newsletters, reports, and internal updates, without rebuilding the link each cycle.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="sec" id="pricing">
+    <div class="wrap reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="h2">A freemium model that proves itself first</h2>
+      <p class="prose">Manifold is freemium, the model Adobe notes performs best, and it is designed so the value is felt on a real workflow before anything is paid for. The free tier is enough to run a genuine job end to end. The paid tier unlocks the connections, scale, and automation that teams reach for once Manifold becomes part of how they work.</p>
+      <div class="tiers">
+        <div class="tier">
+          <p class="tier-name">Free</p>
+          <p class="tier-sub">Prove the value on a real run</p>
+          <ul class="feat">
+            <li>Connect one data source, such as a Google Sheet or CSV</li>
+            <li>Save one bound template</li>
+            <li>Generate a capped number of assets each month</li>
+            <li>Manual export</li>
+          </ul>
+        </div>
+        <div class="tier pro">
+          <p class="tier-name">Pro</p>
+          <p class="tier-sub">Monthly subscription, with a credit option for high volume</p>
+          <ul class="feat">
+            <li>Live connectors, including CRM and product catalog</li>
+            <li>Higher and unlimited generation volume</li>
+            <li>Scheduled refresh and data sync</li>
+            <li>Brand-governance rules and team features</li>
+            <li>Direct publishing</li>
+          </ul>
+        </div>
+      </div>
+      <p class="prose" style="margin-top:22px;">Pricing tracks the moments of real value: more connections, more volume, and automation. It scales with the size of the job, not with the effort of getting started.</p>
+    </div>
+  </section>
+
+  <!-- ROADMAP + ABOUT -->
+  <section class="sec" id="roadmap">
+    <div class="wrap reveal">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="h2">A focused first release, then depth</h2>
+      <p class="prose">The first version proves the core loop. Each phase after it widens what the loop can connect to and how much it can run on its own.</p>
+      <div class="timeline">
+        <div class="tl"><div class="tl-when">Release, Aug 2026</div><div class="tl-what">Core generation from spreadsheet and CSV sources, suggested mapping, persistent bindings, brand-locked output, and batch export.</div></div>
+        <div class="tl"><div class="tl-when">Next</div><div class="tl-what">Live connectors for major CRMs and catalogs, scheduled refresh, and the copy-fitting and brand-check intelligence.</div></div>
+        <div class="tl"><div class="tl-when">Then</div><div class="tl-what">Team workspaces, approval and versioning, and direct multi-channel publishing.</div></div>
+      </div>
+
+      <p class="subhead">About</p>
+      <div class="about">
+        <p>Manifold is an early-stage, pre-seed project led by a solo founder. Hafiz is a software engineer with five years of professional experience building and shipping production software across the full stack, from product-facing interfaces to backend systems and the infrastructure that runs them. He builds the way a founder builds, weighing user experience, business viability, and technical feasibility together on every decision, and shipping quickly without trading away quality. Manifold is currently in design and prototyping, with a first public release targeted for August 2026.</p>
+      </div>
+      <p class="closing">Express is where the design is made. Manifold makes it where the design scales.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-brand">Manifold</p>
+    <p class="foot-desc">A connected creative-production engine for Adobe Express.</p>
+    <p class="foot-meta">A project by Hafiz. 2026.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var head = document.querySelector('.site-head');
+  function onScroll(){ if (window.scrollY > 8){ head.classList.add('scrolled'); } else { head.classList.remove('scrolled'); } }
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  var nodes = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)){
+    nodes.forEach(function(n){ n.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { rootMargin:'0px 0px -10% 0px', threshold:0.08 });
+  nodes.forEach(function(n){ io.observe(n); });
+})();
+</script>
+
+</body>
+</html>
